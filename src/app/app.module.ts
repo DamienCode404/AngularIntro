@@ -3,14 +3,17 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { PostComponent } from './post/post.component';
-import { PostListComponent } from './post-list/post-list.component';
+import { HomeComponent } from './pages/home/home.component';
+import { SearchComponent } from './pages/search/search.component';
+import { MovieComponent } from './pages/movie/movie.component';
+
+import { HttpClientModule } from '@angular/common/http';
+import { MovieApiService } from './service/movie-api.service';
 
 @NgModule({
-  declarations: [AppComponent, NavbarComponent, PostComponent, PostListComponent],
-  imports: [BrowserModule, AppRoutingModule],
-  providers: [],
+  declarations: [AppComponent, HomeComponent, SearchComponent, MovieComponent],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  providers: [MovieApiService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -6,6 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'AngularIntro';
-  parentMessage: string = 'Message from parent component';
+  title = 'Flix & Chill';
 }
