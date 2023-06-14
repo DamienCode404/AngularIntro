@@ -17,7 +17,7 @@ export class MovieService {
     return this.http.get(url);
   }
 
-  getMoviesByCategories(categories: string[]) {
+  getMoviesByMultipleCategories(categories: string[]) {
     const moviesByCategories: Observable<any>[] = [];
 
     for (const category of categories) {

@@ -1,15 +1,31 @@
-<div class="grid grid-rows-6 grid-flow-col gap-4">
+<div class="flex flex-wrap">
   <div *ngFor="let categoryData of categoriesData">
-    <h2 class="font-bold text-white">{{ categoryData.category }}</h2>
-    <div>
-      <ul>
-        <li *ngFor="let movie of categoryData.movies">
-          <img
-            [src]="getMoviePosterUrl(movie.poster_path)"
-            alt="{{ movie.title }}"
-            class="rounded-lg"
-          />
-          {{ movie.title }}
+    <h2 class="font-bold text-white text-2xl p-8 uppercase">
+      {{ categoryData.category }}
+    </h2>
+    <div class="flex overflow-x-auto">
+      <ul class="flex flex-nowrap">
+        <li *ngFor="let movie of categoryData.movies" class="flex-none mx-2">
+          <div
+            class="max-w-xs bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+          >
+            <a href="#">
+              <img
+                [src]="getMoviePosterUrl(movie.poster_path)"
+                alt="{{ movie.title }}"
+                class="rounded-lg"
+              />
+            </a>
+            <div class="p-5">
+              <a href="#">
+                <h5
+                  class="mb-2 text-2xl font-bold text-center tracking-tight text-gray-900 dark:text-white"
+                >
+                  {{ movie.title }}
+                </h5>
+              </a>
+            </div>
+          </div>
         </li>
       </ul>
     </div>

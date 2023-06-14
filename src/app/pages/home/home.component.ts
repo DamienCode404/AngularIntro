@@ -31,13 +31,18 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   getMoviesByCategories() {
     const categories = ['popular', 'top_rated', 'upcoming'];
+
+    // Supprimer les abonnements précédents
+    this.subscription.unsubscribe();
+    this.subscription = new Subscription();
+
     for (const category of categories) {
       this.subscription.add(
         this.movieService.getMoviesByCategory(category).subscribe(
           (data: any) => {
             this.categoriesData.push({
               category: category,
-              movies: data.results,
+              movies: data.results.slice(0, 6),
             });
           },
           (error) => {
