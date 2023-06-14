@@ -1,1 +1,17 @@
-<p>home works!</p>
+<div class="grid grid-rows-6 grid-flow-col gap-4">
+  <div *ngFor="let categoryData of categoriesData">
+    <h2 class="font-bold text-white">{{ categoryData.category }}</h2>
+    <div>
+      <ul>
+        <li *ngFor="let movie of categoryData.movies">
+          <img
+            [src]="getMoviePosterUrl(movie.poster_path)"
+            alt="{{ movie.title }}"
+            class="rounded-lg"
+          />
+          {{ movie.title }}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
