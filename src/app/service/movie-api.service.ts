@@ -12,6 +12,42 @@ export class MovieService {
 
   constructor(private http: HttpClient) {}
 
+  // Méthode pour obtenir les détails d'un film par son ID
+  getMovieDetails(movieId: number): Observable<any> {
+    const url = `${this.baseUrl}/movie/${movieId}?api_key=${this.apiKey}`;
+    return this.http.get(url);
+  }
+
+  // Méthode pour obtenir les acteurs d'un film par son ID
+  getMovieCredits(movieId: number): Observable<any> {
+    const url = `${this.baseUrl}/movie/${movieId}/credits?api_key=${this.apiKey}`;
+    return this.http.get(url);
+  }
+
+  // Méthode pour rechercher des films par mots-clés
+  searchMovies(query: string): Observable<any> {
+    const url = `${this.baseUrl}/search/movie?api_key=${this.apiKey}&query=${query}`;
+    return this.http.get(url);
+  }
+
+  // Méthode pour obtenir les films populaires
+  getPopularMovies(): Observable<any> {
+    const url = `${this.baseUrl}/movie/popular?api_key=${this.apiKey}`;
+    return this.http.get(url);
+  }
+
+  // Méthode pour obtenir les films les mieux notés
+  getTopRatedMovies(): Observable<any> {
+    const url = `${this.baseUrl}/movie/top_rated?api_key=${this.apiKey}`;
+    return this.http.get(url);
+  }
+
+  // Méthode pour obtenir les films à venir
+  getUpcomingMovies(): Observable<any> {
+    const url = `${this.baseUrl}/movie/upcoming?api_key=${this.apiKey}`;
+    return this.http.get(url);
+  }
+
   getMoviesByCategory(category: string) {
     const url = `${this.baseUrl}/movie/${category}?api_key=${this.apiKey}`;
     return this.http.get(url);
