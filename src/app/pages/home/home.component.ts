@@ -42,7 +42,7 @@ export class HomeComponent implements OnInit, OnDestroy {
           (data: any) => {
             this.categoriesData.push({
               category: category,
-              movies: data.results.slice(0, 6),
+              movies: data.results.slice(0),
             });
           },
           (error) => {

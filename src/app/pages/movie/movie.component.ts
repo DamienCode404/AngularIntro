@@ -23,6 +23,25 @@ export class MovieComponent implements OnInit {
     private sanitizer: DomSanitizer
   ) {}
 
+  carouselOptions = {
+    items: 3,
+    loop: true,
+    nav: true,
+    dots: false,
+    margin: 16,
+    responsive: {
+      0: {
+        items: 1,
+      },
+      600: {
+        items: 2,
+      },
+      1000: {
+        items: 3,
+      },
+    },
+  };
+
   ngOnInit() {
     this.route.paramMap.subscribe((params) => {
       const movieIdParam = params.get('id');
@@ -113,5 +132,9 @@ export class MovieComponent implements OnInit {
   getVideoUrl(videoKey: string): SafeResourceUrl {
     const url = 'https://www.youtube.com/embed/' + videoKey;
     return this.sanitizer.bypassSecurityTrustResourceUrl(url);
+  }
+
+  handleImageError(event: any) {
+    event.target.src = 'assets/user.png';
   }
 }
