@@ -17,6 +17,17 @@ export class MovieService {
     const url = `${this.baseUrl}/movie/${movieId}?api_key=${this.apiKey}`;
     return this.http.get(url);
   }
+  // Méthode pour obtenir les vidéos d'un film par son ID
+  getMovieVideo(movieId: number): Observable<any> {
+    const url = `${this.baseUrl}/movie/${movieId}/videos?api_key=${this.apiKey}`;
+    return this.http.get(url);
+  }
+
+  // Méthode pour obtenir les images d'un film par son ID
+  getMovieImages(movieId: number): Observable<any> {
+    const url = `${this.baseUrl}/movie/${movieId}/images?api_key=${this.apiKey}`;
+    return this.http.get(url);
+  }
 
   // Méthode pour obtenir les acteurs d'un film par son ID
   getMovieCredits(movieId: number): Observable<any> {

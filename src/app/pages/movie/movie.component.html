@@ -1,1 +1,40 @@
-<p>movie works!</p>
+<div *ngIf="movieDetails" class="text-white text-lg">
+  <h2>{{ movieDetails.title }}</h2>
+  <p>{{ movieDetails.overview }}</p>
+  <img
+    [src]="getMoviePosterUrl(movieDetails.poster_path)"
+    alt="{{ movieDetails.title }}"
+  />
+
+  <h3>Casting</h3>
+  <ul>
+    <li *ngFor="let actor of cast">{{ actor.name }} - {{ actor.character }}</li>
+  </ul>
+
+  <h3>Équipe de production</h3>
+  <ul>
+    <li *ngFor="let crewMember of crew">
+      {{ crewMember.name }} - {{ crewMember.job }}
+    </li>
+  </ul>
+
+  <h3>Images du film</h3>
+  <div class="images-container">
+    <div *ngFor="let image of images" class="image-item">
+      <img [src]="getMovieImageUrl(image.file_path)" alt="Image" />
+    </div>
+  </div>
+
+  <h3>Videos du film</h3>
+  <div *ngFor="let video of videos.slice(0, 3)">
+    <iframe
+      width="560"
+      height="315"
+      [src]="getVideoUrl(video.key)"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen
+    ></iframe>
+  </div>
+</div>
