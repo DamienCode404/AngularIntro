@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MovieService } from 'src/app/service/movie-api.service';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { OwlOptions } from 'ngx-owl-carousel-o';
 
 @Component({
   selector: 'app-movie',
@@ -17,30 +18,36 @@ export class MovieComponent implements OnInit {
   crew: any[] = [];
   images: any[] = [];
 
+  customOptions: OwlOptions = {
+    loop: true,
+    mouseDrag: true,
+    touchDrag: true,
+    pullDrag: true,
+    dots: true,
+    navSpeed: 700,
+    navText: ['', ''],
+    responsive: {
+      0: {
+        items: 1,
+      },
+      400: {
+        items: 2,
+      },
+      740: {
+        items: 3,
+      },
+      940: {
+        items: 4,
+      },
+    },
+    nav: true,
+  };
+
   constructor(
     private route: ActivatedRoute,
     private movieService: MovieService,
     private sanitizer: DomSanitizer
   ) {}
-
-  carouselOptions = {
-    items: 3,
-    loop: true,
-    nav: true,
-    dots: false,
-    margin: 16,
-    responsive: {
-      0: {
-        items: 1,
-      },
-      600: {
-        items: 2,
-      },
-      1000: {
-        items: 3,
-      },
-    },
-  };
 
   ngOnInit() {
     this.route.paramMap.subscribe((params) => {

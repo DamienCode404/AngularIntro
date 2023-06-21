@@ -1,24 +1,17 @@
-<div class="flex flex-wrap">
-  <div *ngFor="let categoryData of categoriesData">
-    <h2 class="font-bold text-white text-2xl p-8 uppercase">
-      {{ categoryData.category }}
-    </h2>
-    <div class="flex overflow-hidden snap-x">
-      <ul class="flex flex-nowrap">
-        <li *ngFor="let movie of categoryData.movies" class="flex-none mx-2">
-          <div
-            class="max-w-xs snap-center bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
-          >
-            <a [routerLink]="['/movie', movie.id]">
-              <img
-                [src]="getMoviePosterUrl(movie.poster_path)"
-                alt="{{ movie.title }}"
-                class="rounded-lg w-60"
-              />
-            </a>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </div>
+<div *ngFor="let categoryData of categoriesData" class="py-8">
+  <h2 class="font-bold text-white text-2xl p-8 uppercase">
+    {{ categoryData.category }}
+  </h2>
+  <owl-carousel-o [options]="customOptions">
+    <ng-container *ngFor="let movie of categoryData.movies">
+      <ng-template carouselSlide [id]="movie.id">
+        <a [routerLink]="['/movie', movie.id]">
+          <img
+            [src]="getMoviePosterUrl(movie.poster_path)"
+            alt="{{ movie.title }}"
+          />
+        </a>
+      </ng-template>
+    </ng-container>
+  </owl-carousel-o>
 </div>
