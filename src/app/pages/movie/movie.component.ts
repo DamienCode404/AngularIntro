@@ -10,6 +10,7 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
   styleUrls: ['./movie.component.css'],
 })
 export class MovieComponent implements OnInit {
+  showOverlay = false;
   movieId: number | null = null;
   movieDetails: any;
   videoDetails: any;
@@ -23,7 +24,7 @@ export class MovieComponent implements OnInit {
     mouseDrag: true,
     touchDrag: true,
     pullDrag: true,
-    dots: true,
+    dots: false,
     navSpeed: 700,
     navText: ['', ''],
     responsive: {
@@ -143,5 +144,15 @@ export class MovieComponent implements OnInit {
 
   handleImageError(event: any) {
     event.target.src = 'assets/user.png';
+  }
+
+  playTrailer(videoKey: string) {
+    this.showOverlay = false; // Masquer l'icône de lecture
+    this.movieDetails.showVideo = true; // Afficher la vidéo du film
+    this.movieDetails.videoKey = videoKey; // Enregistrer la clé de la vidéo
+  }
+
+  closeVideo() {
+    this.movieDetails.showVideo = false;
   }
 }
