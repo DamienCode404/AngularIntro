@@ -79,4 +79,14 @@ export class MovieService {
 
     return forkJoin(moviesByCategories);
   }
+
+  getAllMovies(page: number): Observable<any> {
+    const url = `${this.baseUrl}/discover/movie?api_key=${this.apiKey}&page=${page}`;
+    return this.http.get(url);
+  }
+
+  getAllTvShows(page: number): Observable<any> {
+    const url = `${this.baseUrl}/discover/tv?api_key=${this.apiKey}&page=${page}`;
+    return this.http.get(url);
+  }
 }

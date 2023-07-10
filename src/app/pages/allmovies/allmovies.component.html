@@ -1,0 +1,18 @@
+<div class="grid grid-cols-5 gap-6 m-10 items-center justify-center">
+  <div *ngFor="let movie of allMovies">
+    <img
+      [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path"
+      [alt]="movie.title"
+      class="rounded-md"
+    />
+  </div>
+</div>
+<div class="justify-center flex pb-10">
+  <button (click)="nextPage()" [disabled]="currentPage === totalPages">
+    <div
+      class="bg-red-500 hover:bg-red-700 text-white text-2xl font-bold py-4 px-12 rounded-full"
+    >
+      Next
+    </div>
+  </button>
+</div>

@@ -18,6 +18,8 @@ export class MovieComponent implements OnInit {
   cast: any[] = [];
   crew: any[] = [];
   images: any[] = [];
+  searchText: string = '';
+  filteredActors: any[] = [];
 
   customOptions: OwlOptions = {
     loop: true,
@@ -154,5 +156,15 @@ export class MovieComponent implements OnInit {
 
   closeVideo() {
     this.movieDetails.showVideo = false;
+  }
+
+  filterTable(searchText: string): void {
+    this.searchText = searchText.toLowerCase();
+
+    this.filteredActors = this.cast.filter(
+      (actor) =>
+        actor.name.toLowerCase().includes(this.searchText) ||
+        actor.character.toLowerCase().includes(this.searchText)
+    );
   }
 }

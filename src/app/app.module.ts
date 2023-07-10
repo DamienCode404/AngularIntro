@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -11,6 +11,8 @@ import { AuthenticationComponent } from './pages/authentication/authentication.c
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { HttpClientModule } from '@angular/common/http';
 import { MovieService } from './service/movie-api.service';
+import { TvShowComponent } from './pages/tv-show/tv-show.component';
+import { AllmoviesComponent } from './pages/allmovies/allmovies.component';
 
 @NgModule({
   declarations: [
@@ -19,9 +21,12 @@ import { MovieService } from './service/movie-api.service';
     SearchComponent,
     MovieComponent,
     AuthenticationComponent,
+    TvShowComponent,
+    AllmoviesComponent,
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     HttpClientModule,
     CarouselModule,
