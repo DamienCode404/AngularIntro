@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MovieService } from './service/movie-api.service';
 import { TvShowComponent } from './pages/tv-show/tv-show.component';
 import { AllmoviesComponent } from './pages/allmovies/allmovies.component';
+import { TvComponent } from './pages/tv/tv.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { AllmoviesComponent } from './pages/allmovies/allmovies.component';
     AuthenticationComponent,
     TvShowComponent,
     AllmoviesComponent,
+    TvComponent,
   ],
   imports: [
     BrowserModule,

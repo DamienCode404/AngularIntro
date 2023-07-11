@@ -17,9 +17,20 @@ export class MovieService {
     const url = `${this.baseUrl}/movie/${movieId}?api_key=${this.apiKey}`;
     return this.http.get(url);
   }
+
+  getTvDetails(tvId: number): Observable<any> {
+    const url = `${this.baseUrl}/tv/${tvId}?api_key=${this.apiKey}`;
+    return this.http.get(url);
+  }
+
   // Méthode pour obtenir les vidéos d'un film par son ID
   getMovieVideo(movieId: number): Observable<any> {
     const url = `${this.baseUrl}/movie/${movieId}/videos?api_key=${this.apiKey}`;
+    return this.http.get(url);
+  }
+
+  getTvVideo(tvId: number): Observable<any> {
+    const url = `${this.baseUrl}/tv/${tvId}/videos?api_key=${this.apiKey}`;
     return this.http.get(url);
   }
 
@@ -29,9 +40,19 @@ export class MovieService {
     return this.http.get(url);
   }
 
+  getTvImages(tvId: number): Observable<any> {
+    const url = `${this.baseUrl}/tv/${tvId}/images?api_key=${this.apiKey}`;
+    return this.http.get(url);
+  }
+
   // Méthode pour obtenir les acteurs d'un film par son ID
   getMovieCredits(movieId: number): Observable<any> {
     const url = `${this.baseUrl}/movie/${movieId}/credits?api_key=${this.apiKey}`;
+    return this.http.get(url);
+  }
+
+  getTvCredits(tvId: number): Observable<any> {
+    const url = `${this.baseUrl}/tv/${tvId}/credits?api_key=${this.apiKey}`;
     return this.http.get(url);
   }
 

@@ -1,10 +1,16 @@
-<div class="grid grid-cols-5 gap-6 m-10 items-center justify-center">
+<div
+  class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-6 m-10 items-center justify-center"
+>
   <div *ngFor="let tv of allTv">
-    <img
-      [src]="getMoviePosterUrl(tv.poster_path)"
-      [alt]="tv.title"
-      class="rounded-md"
-    />
+    <div [id]="tv.id">
+      <a [routerLink]="['/tv', tv.id]">
+        <img
+          [src]="getMoviePosterUrl(tv.poster_path)"
+          [alt]="tv.title"
+          class="rounded-md"
+        />
+      </a>
+    </div>
   </div>
 </div>
 <div class="justify-center flex pb-10">

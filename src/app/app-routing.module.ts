@@ -6,11 +6,13 @@ import { MovieComponent } from './pages/movie/movie.component';
 import { AuthenticationComponent } from './pages/authentication/authentication.component';
 import { TvShowComponent } from './pages/tv-show/tv-show.component';
 import { AllmoviesComponent } from './pages/allmovies/allmovies.component';
+import { TvComponent } from './pages/tv/tv.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'search', component: SearchComponent },
   { path: 'movie/:id', component: MovieComponent },
+  { path: 'tv/:id', component: TvComponent },
   { path: 'authentication', component: AuthenticationComponent },
   { path: 'tv-show', component: TvShowComponent },
   { path: 'all-movies', component: AllmoviesComponent },
